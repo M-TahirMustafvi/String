@@ -15,6 +15,13 @@ public:
 	friend ostream& operator<<(ostream&, const String&);
 	String operator=(const String&);
 	bool operator==(const String&);
+	bool operator!=(const String&);
+	bool operator>=(const String&);
+	bool operator<=(const String&);
+	bool operator<(const String&);
+	bool operator>(const String&);
+	char operator [](int);
+	int Strlen();
 	
 };
 

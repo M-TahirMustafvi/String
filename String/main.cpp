@@ -3,11 +3,13 @@
 using namespace std;
 int main()
 {
-	String arr;
-	cin >> arr;
-	String arr1;
-	cin >> arr1;
+	String arr = "Tah";
+	//cin >> arr;
+	
 	//arr1 = arr;
-	cout << arr << endl;
-	cout << arr1;
+
+	cout << arr[8] << endl;
+
+	string arr2 = "Tahir";
+	cout << arr2[9];
 }

@@ -1,5 +1,6 @@
 #include "String.h"
 
+//Default constructor
 String::String()
 {
 	size = 0;
@@ -10,6 +11,8 @@ String::String()
 	}
 }
 
+
+//Parameterized Constructor
 String::String(const char arr1[])
 {
 	int count = 0;
@@ -26,6 +29,8 @@ String::String(const char arr1[])
 	arr[size] = '\0';
 }
 
+
+//Copy Constructor
 String::String(const String& that)
 {
 	this->size = that.size;
@@ -38,6 +43,7 @@ String::String(const String& that)
 	arr[size] = '\0';
 }
 
+//Overloaded assignment operator
 String String::operator=(const String& obj)
 {
 	this->size = obj.size;
@@ -51,11 +57,115 @@ String String::operator=(const String& obj)
 	return *this;
 }
 
+
 // Assignment boolean operator
 bool String::operator==(const String& that)
 {
+	for (int i = 0; i < size; i++)
+	{
+		if (that.arr[i] != this->arr[i])
+			return false;
+	}
+	return true;
+}
+
+
+// != boolean operator
+bool String::operator!=(const String& that)
+{
+	for (int i = 0; i < size; i++)
+	{
+		if (that.arr[i] != this->arr[i])
+			return true;
+	}
+	return false;
+}
+
+
+// >= boolean operator
+bool String::operator>=(const String& that)
+{
+	if (size < that.size)
+		return false;
+	else if (size > that.size)
+		return true;
+	else
+	{
+		for (int i = 0; i < size; i++)
+		{
+			if (this->arr[i] < that.arr[i])
+				return false;
+		}
+		return true;
+	}
+}
+
+
+// <= boolean operator
+bool String::operator<=(const String& that)
+{
+	if (size < that.size)
+		return true;
+	else if (size > that.size)
+		return false;
+	else
+	{
+		for (int i = 0; i < size; i++)
+		{
+			if (this->arr[i] > that.arr[i])
+				return false;
+		}
+		return true;
+	}
+}
+
+
+// < boolean operator
+bool String::operator<(const String& that)
+{
+	if (size < that.size)
+		return true;
+	else if(size > that.size)
+		return false;
+	else
+	{
+		for (int i = 0; i < size; i++)
+		{
+			if (this->arr[i] < that.arr[i])
+				return true;
+		}
+		return false;
+	}
+	
+}
+
+
+// > boolean operator
+bool String::operator>(const String& that)
+{
+	if (size > that.size)
+		return true;
+	else if(size < that.size)
+		return false;
+	else
+	{
+		for (int i = 0; i < size; i++)
+		{
+
+			if (this->arr[i] > that.arr[i])
+				return true;
+		}
+		return false;
+	}
 
 }
+
+char String::operator[](int i)
+{
+	return arr[i];
+}
+
+
 
 //Stream extraction operator
 ostream& operator<<(ostream& out, const String& obj)
@@ -87,6 +197,15 @@ istream& operator>>(istream& in, String& obj)
 	return in;
 }
 
+//String length
+int String::Strlen()
+{
+	return size;
+}
+
+//
+
+//Destructor
 String::~String()
 {
 	delete[] arr;
