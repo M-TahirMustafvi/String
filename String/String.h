@@ -22,6 +22,7 @@ public:
 	bool operator>(const String&);
 	char operator [](int);
 	int Strlen();
+	String subString(const String);
 	
 };
 

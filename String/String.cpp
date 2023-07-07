@@ -162,7 +162,10 @@ bool String::operator>(const String& that)
 
 char String::operator[](int i)
 {
-	return arr[i];
+	if (i >= 0 || i < size)
+		return arr[i];
+	else
+		cout << "out of range subscript";
 }
 
 
@@ -203,7 +206,11 @@ int String::Strlen()
 	return size;
 }
 
-//
+//get Substring
+String String::subString(const String)
+{
+
+}
 
 //Destructor
 String::~String()
